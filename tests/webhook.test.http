@@ -1,0 +1,10 @@
+### api/v1/webhooks/register
+POST  {{baseURL}}/webhooks
+content-type: application/json
+Authentication: Bearer "the token"
+
+{
+  "url": "the url that the webhook will be sent to",
+  "accessToken": "A secret to validate the origin of the webhook"
+}
+   

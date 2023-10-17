@@ -1,0 +1,40 @@
+### api/v1/tandem/users
+POST  {{baseURL}}/users
+content-type: application/json
+
+{
+    "native": "ita",
+    "languages": [
+        {
+            "language": "eng",
+            "level": "B2"
+        },
+        {
+            "language": "rus",
+            "level": "A1"
+        }
+    ],
+    "role": ["tandem"],
+    "location": {
+        "city": "city-name",
+        "country": "country-name"
+    },
+    "remote": "true | false"
+}
+
+### api/v1/tandem/users/:id
+POST  {{baseURL}}/users/:id
+content-type: application/json
+
+{
+    "languages": [
+        {
+            "language": "eng",
+            "level": "B2"
+        },
+        {
+            "language": "rus",
+            "level": "A1"
+        }
+    ],
+}

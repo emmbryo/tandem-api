@@ -1,0 +1,1106 @@
+{
+	"info": {
+		"_postman_id": "f5ddac43-684f-49c8-8dff-a0bf8d1a600f",
+		"name": "Tandem API: Tests for examination",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "18567862"
+	},
+	"item": [
+		{
+			"name": "/    -->entry point",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}",
+					"host": [
+						"{{baseURL}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/auth",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/auth",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"auth"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/auth/register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"GullefjunetXL\",\n    \"password\": \"superhemligt\",\n    \"firstName\": \"Gullefjun\",\n    \"lastName\": \"Silkesdun\",\n    \"email\": \"kvack_kvack_kvack@student.lnu.se\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/auth/register",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"auth",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/auth/register - duplication",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"Gullefjunet99\",\n    \"password\": \"superhemligt\",\n    \"firstName\": \"Gullefjun\",\n    \"lastName\": \"Silkesdun\",\n    \"email\": \"kvack_kvack99@student.lnu.se\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/auth/register",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"auth",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/auth/register - wrong body",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"moder-hönan\",\n    \"password\": \"\",\n    \"firstName\": \"Gullefjun\",\n    \"lastName\": \"Silkesdun\",\n    \"email\": \"\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/auth/register",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"auth",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/auth/login",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NGM3OWJmMmVjZjUyYzY5ZDRhYmFjMGQiLCJ1c2VybmFtZSI6Ikd1bGxlZmp1bmV0IiwiZ2l2ZW5fbmFtZSI6Ikd1bGxlZmp1biIsImZhbWlseV9uYW1lIjoiU2lsa2VzZHVuIiwiZW1haWwiOiJrdmFjazU1QHN0dWRlbnQubG51LnNlIiwiaWF0IjoxNjkwODkxOTI0LCJleHAiOjE2OTA5NzgzMjR9.ehocOM9T7HxUAdosOBpyrJnJIs0x0m41PCvo3kn1otLbL_-ygYOp9QTM2joZy3w2t5BTj03_9RMnEQ8vhMY-lLnF29GmZYeoJDgRlEeRWj6ACSx0cTkpVULyyLDWPh3HTmNwLchwHIFUqMMqxIUg0YfhCQDkP4xpLNJrh62195TT4HyuQhD1PQQkpsLeaHvjQwfmG6by8KEmF1Xi7dele1I4WaGSzo-sfEzEJVcpT_LBxpKcMsOJePIZFilWKRvlrouyjW8WBedXtnaSy8Q1xHmHnOo1AY3tx3q4ROd50pf9UuumMbbyVURR2iBNPsuU-HcIXYe1WrHItpSDS70JFw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"Gullefjunet300\",\n    \"password\": \"superhemligt\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/auth/login",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/auth/login - invalid",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"ingen aning\",\n    \"password\": \"ingen som vet\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/auth/login",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/auth/users/:id - wrong id",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/auth/users/{{wrong_id}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"auth",
+						"users",
+						"{{wrong_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/auth/users/:id",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"Gullefjunet300\",\n    \"password\": \"superhemligt\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/auth/users/{{user_id}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"auth",
+						"users",
+						"{{user_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/tandem",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/tandem",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"tandem"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/tandem/users - all",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/tandem/users",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"tandem",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/tandem/users - query",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/tandem/users?native=eng&limit=4",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"tandem",
+						"users"
+					],
+					"query": [
+						{
+							"key": "native",
+							"value": "eng"
+						},
+						{
+							"key": "limit",
+							"value": "4"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/tandem/users - query 2",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/tandem/users?native=ukr",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"tandem",
+						"users"
+					],
+					"query": [
+						{
+							"key": "native",
+							"value": "ukr"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/tandem/users - query 3",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/tandem/users?language=fra&level=C1&remote=true",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"tandem",
+						"users"
+					],
+					"query": [
+						{
+							"key": "language",
+							"value": "fra"
+						},
+						{
+							"key": "level",
+							"value": "C1"
+						},
+						{
+							"key": "remote",
+							"value": "true"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/tandem/users - invalid jwt",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{invalid_jwt}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/tandem/users",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"tandem",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/tandem/users - invalid/no jwt",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"native\": \"ita\",\n    \"languages\": [\n        {\n            \"language\": \"eng\",\n            \"level\": \"B2\"\n        },\n        {\n            \"language\": \"rus\",\n            \"level\": \"A1\"\n        }\n    ],\n    \"role\": [\"tandem\"],\n    \"location\": {\n        \"city\": \"Milano\",\n        \"country\": \"Italy\"\n    },\n    \"remote\": \"true\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/tandem/users",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"tandem",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/tandem/users - invalid body",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"languages\": [\n        {\n            \"language\": \"eng\",\n            \"level\": \"B2\"\n        },\n        {\n            \"language\": \"rus\",\n            \"level\": \"A1\"\n        }\n    ],\n    \"role\": [\"tandem\"],\n    \"location\": {\n        \"city\": \"Milano\",\n        \"country\": \"Italy\"\n    },\n    \"remote\": \"true\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/tandem/users",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"tandem",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/tandem/users",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"native\": \"ita\",\n    \"languages\": [\n        {\n            \"language\": \"eng\",\n            \"level\": \"B2\"\n        },\n        {\n            \"language\": \"rus\",\n            \"level\": \"A1\"\n        }\n    ],\n    \"role\": [\"tandem\"],\n    \"location\": {\n        \"city\": \"Milano\",\n        \"country\": \"Italy\"\n    },\n    \"remote\": \"true\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/tandem/users",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"tandem",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/tandem/users/:id",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/tandem/users/{{id}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"tandem",
+						"users",
+						"{{id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/tandem/users/:wrong id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/tandem/users/{{wrong_id}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"tandem",
+						"users",
+						"{{wrong_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/tandem/users/:id - wrong id format",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/tandem/users/ngt_random",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"tandem",
+						"users",
+						"ngt_random"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/tandem/users/:id",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"native\": \"ita\",\n    \"languages\": [\n        {\n            \"language\": \"eng\",\n            \"level\": \"B2\"\n        },\n        {\n            \"language\": \"rus\",\n            \"level\": \"A1\"\n        },\n        {\n            \"language\": \"est\",\n            \"level\": \"A2\"\n        }\n    ],\n    \"role\": [\"tandem\"],\n    \"location\": {\n        \"city\": \"Milano\",\n        \"country\": \"Italy\"\n    },\n    \"remote\": \"true\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/tandem/users/{{id}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"tandem",
+						"users",
+						"{{id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/tandem/users/ - incomplete body",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"native\": \"ita\",\n    \"role\": [\"tandem\"],\n    \"location\": {\n        \"city\": \"Milano\",\n        \"country\": \"Italy\"\n    },\n    \"remote\": \"true\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/tandem/users/{{id}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"tandem",
+						"users",
+						"{{id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/tandem/users/:id",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"native\": \"ita\",\n    \"languages\": [\n        {\n            \"language\": \"swe\",\n            \"level\": \"B2\"\n        },\n        {\n            \"language\": \"rus\",\n            \"level\": \"A1\"\n        },\n        {\n            \"language\": \"est\",\n            \"level\": \"A2\"\n        }\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/tandem/users/{{id}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"tandem",
+						"users",
+						"{{id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/tandem/users/:id - wrong param",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"språk\": \"swe\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/tandem/users/{{id}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"tandem",
+						"users",
+						"{{id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/tandem/users/:id - invalid jwt",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{invalid_jwt}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/tandem/users/{{id}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"tandem",
+						"users",
+						"{{id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/tandem/users/:id",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/tandem/users/{{id}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"tandem",
+						"users",
+						"{{id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/webhooks",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/webhooks",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"webhooks"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/webhooks/register - no jwt",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/webhooks/register",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"webhooks",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/webhooks/register - invalid body",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"url\": \"sendisss@hook.com\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/webhooks/register",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"webhooks",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/webhooks/register - url in use",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"url\": \"https://eoazr0rdr3ygosn.m.pipedream.net\",\n  \"accessToken\": \"jättehemligtsaccesstoken\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/webhooks/register",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"webhooks",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/webhooks/register",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"url\": \"send_the_webhook_here@lookout.com\",\n  \"accessToken\": \"jättehemligtsaccesstoken\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/webhooks/register",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"webhooks",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/webhooks/:id",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/webhooks/{{webhook_id}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"webhooks",
+						"{{webhook_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/webhooks/:id - bad id",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{baseURL}}/webhooks/64c8a93128fadc6521ff6a81",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"webhooks",
+						"64c8a93128fadc6521ff6a81"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/webhooks/fire - not reachable",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "webhook_access_token",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/webhooks/fire",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"webhooks",
+						"fire"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseURL",
+			"value": "https://cscloud8-114.lnu.se/tandem/api/v1"
+		},
+		{
+			"key": "id",
+			"value": "fill in id!",
+			"type": "string"
+		},
+		{
+			"key": "webhook_id",
+			"value": "64c7ad311fda874bb0e06773"
+		},
+		{
+			"key": "jwt",
+			"value": "fill in jwt!"
+		},
+		{
+			"key": "wrong_id",
+			"value": "64dde005ba9e81ab265adabf",
+			"type": "string"
+		},
+		{
+			"key": "invalid_jwt",
+			"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2PGRkZGU5NDUwOTY3NjJmMGNiYjhmOWMiLCJ1c2VybmFtZSI6Ikd1bGxlZmp1bmV0MjAwMCIsImdpdmVuX25hbWUiOiJHdWxsZWZqdW4iLCJmYW1pbHlfbmFtZSI6IlNpbGtlc2R1biIsImVtYWlsIjoia3ZhY2s3NzIwMDBAc3R1ZGVudC5sbnUuc2UiLCJpYXQiOjE2OTIyNjIwNDQsImV4cCI6MTY5MjM0ODQ0NH0.RJldhZfLFkE4DdT4jJpzxXTTd6unwwZsAXcmbfQg8tBQ_fshXSVB-t4ChnO5r7ocS6NNhMvJnOooWxg8QNaBcPOgTj312fdUgY8vNkS0GYV7PlwXEetFc7T1-uIA8h4HzRcDrUdUazlSN--jLAC8h98t7-NwIsVN94ipMy6p5ZpfPoX3rUxmSAr93og-SibTxSmOksF3vU5_gN2a-xOh-3pXdRpZoUvyp_xCBI8kqp5s-CfPOSeYD-fo5Ucb5fP7ZnMZHMdoThy0QJh7ErUc7q-VDza7fM4fmdjGYrz1WFPRc4wrw-kja8JWEwDatz5QrBxBGCqZL0cmMPoi8HSPCw",
+			"type": "string"
+		},
+		{
+			"key": "user_id",
+			"value": "64e2154e32efe8a2079a003f",
+			"type": "string"
+		}
+	]
+}
