@@ -4,7 +4,7 @@ This api is meant to be used to find a language tandem partner. You register you
 
 
 ## Requirements for running the application
-It requires an instance of mongoDB to run, one for authentication and one for the tandem data.
+It requires an instance of mongoDB to run, for authentication and for the tandem data.
 
 ## Environmental variables 
 The needed environmental variables are:

@@ -14,7 +14,7 @@
     "type": "git",
     "url": "git@github.com:emmbryo/tandem-api.git"
   },
-  "author": "ef222hr",
+  "author": "emmbryo",
   "license": "MIT",
   "dependencies": {
     "bcrypt": "^5.0.1",
